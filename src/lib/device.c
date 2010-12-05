@@ -251,12 +251,12 @@ int epos_device_write(epos_device_p dev, short index, unsigned char subindex,
 
 int epos_device_store_parameters(epos_device_p dev) {
   return epos_device_write(dev, EPOS_DEVICE_INDEX_STORE,
-    EPOS_DEVICE_SUBINDEX_STORE, "save", 4);
+    EPOS_DEVICE_SUBINDEX_STORE, (unsigned char *) "save", 4);
 }
 
 int epos_device_restore_parameters(epos_device_p dev) {
   return epos_device_write(dev, EPOS_DEVICE_INDEX_STORE,
-    EPOS_DEVICE_SUBINDEX_STORE, "load", 4);
+    EPOS_DEVICE_SUBINDEX_STORE, (unsigned char *) "load", 4);
 }
 
 int epos_device_get_id(epos_device_p dev) {

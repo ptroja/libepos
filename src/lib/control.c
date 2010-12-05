@@ -45,7 +45,7 @@ void epos_control_destroy(epos_control_p control) {
 
 epos_control_type_t epos_control_get_type(epos_control_p control) {
   char type;
-  epos_device_read(control->dev, EPOS_CONTROL_INDEX_MODE_DISPLAY, 0, &type, 1);
+  epos_device_read(control->dev, EPOS_CONTROL_INDEX_MODE_DISPLAY, 0, (unsigned char *) &type, 1);
 
   return type;
 }
@@ -53,7 +53,7 @@ epos_control_type_t epos_control_get_type(epos_control_p control) {
 int epos_control_set_type(epos_control_p control, epos_control_type_t type) {
   char t = type;
   int result = epos_device_write(control->dev, EPOS_CONTROL_INDEX_MODE, 0,
-    &t, 1);
+    (unsigned char *) &t, 1);
 
   if (!result)
     control->type = type;
