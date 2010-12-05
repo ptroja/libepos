@@ -29,6 +29,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <stdio.h>
 
+#include <tulibs/timer.h>
+
 #include "control.h"
 
 void epos_control_init(epos_control_p control, epos_device_p dev,
